@@ -1,0 +1,32 @@
+ARITHMETIC OPERATORS:
++ - * // / % **
+
+All operators are binary operators. They need 2 operands/values/input
+The rule/syntax says we must place the operator in between the operands which is INFIX notation.
+The I/P are numbers.
+The O/P is number.
+The operators + and - have the least precedence (heirarchy/preference)
+All the Arithmetic operators except the power operator have Left to Right Associtivity.
+x + y + z
+4 + 5 - 19
+Here, the expression 4 + 5 is evaluated 1st
+2 ** 3 ** 2
+Here 3 ** 2 is evaluated 1st.
+NOTE:
+The way +ve integers are stored in memory, the way -ve integers are stored in memory and the floating point numbers (number with precission) are all different.
+
+HOW TO SOLVE A PROBLEM:
+
+1. Read the problem statement carefully. List down the I/P data, relavant information. Isolate the unwanted information. Assertain what is the O/P.
+Outcome: I/P we know, O/P we know
+
+2. Find the solution. Forget programming. Find the solution using any specific technique or using some formula or trial and error method.
+Outcome: We know the solution
+
+3. Write the Algorithm. Step by step procedure. Each step must be simple, unambigious and finite.
+
+4. Write the Fake-code (Pseucode)
+
+5. Code it!
+
+6. Unit testing, Cyxclomatic complexity (to find number of paths in the logic), optimize the logic.
