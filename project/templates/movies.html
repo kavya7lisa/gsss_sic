@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; padding:1rem; }
+    h1 { text-align: center; margin-bottom:1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; }
+    .card { background:white; border-radius:10px; padding:1rem; box-shadow:0 2px 6px rgba(0,0,0,0.1); transition:0.2s; cursor:pointer; display:flex; flex-direction:column; align-items:center; text-align:center; }
+    .card:hover { transform: scale(1.05); }
+    .card img { width:100%; height:300px; object-fit:cover; border-radius:10px; margin-bottom:0.5rem; }
+    .title { font-weight:bold; margin-bottom:0.3rem; color:#2a5298; font-size:1.1rem; }
+    .description-snippet { font-size:0.9rem; color:#555; height:50px; overflow:hidden; }
+    .genre { font-size:0.8rem; color:#888; margin-top:0.3rem; }
+
+    /* Modal */
+    .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.6); }
+    .modal-content { background-color:#fff; margin:5% auto; padding:2rem; border-radius:10px; max-width:700px; text-align:center; position:relative; }
+    .modal-content img { max-width:100%; border-radius:10px; margin-bottom:1rem; }
+    .close { position:absolute; top:10px; right:20px; font-size:28px; font-weight:bold; cursor:pointer; color:#333; }
+    .description { text-align:justify; max-height:300px; overflow-y:auto; }
+    .rating { font-weight:bold; margin-top:10px; color:#ff8c00; }
+  </style>
+</head>
+<body>
+  <h1>🎥 Movie List</h1>
+  <div class="grid">
+    {% for movie in movies %}
+    <div class="card" onclick="openModal(
+        '{{ movie.Title|escape }}',
+        '{{ movie.Description|escape }}',
+        '{{ movie.PhotoURL|escape }}',
+        {{ movie.AvgRating or 'null' }},
+        {{ movie.NumRatings }}
+    )">
+      <img src="{{ movie.PhotoURL }}" alt="{{ movie.Title }}">
+      <div class="title">{{ movie.Title }}</div>
+      <div class="description-snippet">
+        {{ movie.Description[:80] }}{% if movie.Description|length > 80 %}...{% endif %}
+      </div>
+      <div class="genre">{{ movie.Genre }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Modal -->
+  <div id="movieModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImage" src="" alt="Movie Poster">
+      <p id="modalDescription" class="description"></p>
+      <p id="modalRating" class="rating"></p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, description, imageUrl, avgRating, numRatings) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDescription').innerText = description;
+      document.getElementById('modalImage').src = imageUrl;
+      document.getElementById('modalRating').innerText = 
+          avgRating ? `⭐ ${avgRating.toFixed(1)} (${numRatings} ratings)` : "No ratings yet";
+      document.getElementById('movieModal').style.display = 'block';
+    }
+    function closeModal() { document.getElementById('movieModal').style.display = 'none'; }
+    window.onclick = function(event) { if(event.target === document.getElementById('movieModal')) closeModal(); }
+  </script>
+</body>
+</html>
