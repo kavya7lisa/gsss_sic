@@ -1,0 +1,48 @@
+$ value error 
+ex: user give no is 15 when we try to turn it into a string then it's a value error
+$ name error
+$ syntax error
+$ output formating 
+'%-3s'
+$ why in python we dont have increment and decrement options
+$ learn __main__ in python
+$ pep 3 and pythonic (learn from articals)
+$ can we modify the list which is in the tuple
+
+
+$ how to keep on inputting util a key is used to break the inputting using python.
+ex: in c scanf(%[^#]s)
+$ good and bad examplesof list/array.
+$ in and out of function
+
+
+$ why there is no index error in slicing?
+$ implement a function find which memic find method in string.
+$ ex: my_str ='mysuru'
+   >my_str.find('')
+	 output = 0  whyyy!
+   >my_str.find('m')
+	 output = 0  whyyy!
+$ accept a no from the user and find the next possible smallest no which is bigger than the given having all the digits of the given no.
+$ create list with chocolate weight and take n(weights of chocolate) from the user and have one of the weight as a reference weight(first or last weight) and partition into 2(smaller and larger than partition weight).
+	 
+
+     {{{}}}
+      {}}{
+write the algorithm to count number of pairs and if they are aligned.
+@ pdb
+@ states and capitals make a list and display into a table.
+->using split
+->using find,argv
+@ take a 4 digit no where a digit cannot repeat more than twice and put in decreasing order and take the difference take this as the orginal no and apply recursive function until you find unusuality.find the number of recursion for the unusality to occur.
+
+
+
+establish conntion
+get the cursor
+run quriey
+close cursor
+close connection
+
+binary searching
+->sorted list(fully sorted) in ascending order
